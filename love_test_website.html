@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>A Little Love For You ♡</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Pacifico&family=Playfair+Display:wght@500;600;700&display=swap');
+:root{--pink:#ffe9ef;--pink2:#ffd0dc;--rose:#e94b76;--deep:#a91643;--ink:#6c2940;--paper:#fff9fa}
+*{box-sizing:border-box}
+body{margin:0;background:var(--pink);color:var(--ink);font-family:'DM Sans',sans-serif;min-height:100vh;overflow-x:hidden}
+body:before{content:"";position:fixed;inset:0;pointer-events:none;opacity:.23;background-image:radial-gradient(#e88ca5 1px,transparent 1px);background-size:19px 19px;z-index:-1}
+button{font:inherit;cursor:pointer;border:0}
+button:focus-visible{outline:3px solid #a91643;outline-offset:3px}
+.page{display:none;min-height:100vh;padding:22px 16px 40px;animation:fade .55s ease}
+.page.active{display:flex;flex-direction:column;align-items:center}
+@keyframes fade{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
+.top{width:min(950px,100%);display:flex;align-items:center;justify-content:space-between;margin:0 auto 24px}
+.brand{font-family:Pacifico,cursive;color:var(--deep);font-size:19px}
+.heartmark{font-size:25px;color:var(--rose)}
+h1,h2{font-family:'Playfair Display',serif;text-align:center;color:#c52d5b;margin:10px 0}
+h1{font-size:clamp(2rem,5vw,3.5rem)}h2{font-size:clamp(1.6rem,4vw,2.35rem)}
+.subtitle{text-align:center;max-width:600px;line-height:1.7;color:#99516a;margin:4px auto 25px}
+.panel{width:min(650px,100%);background:rgba(255,255,255,.72);border:1px solid #ffd0dc;border-radius:25px;padding:clamp(20px,5vw,38px);box-shadow:0 16px 45px #c9577720}
+.primary,.secondary{border-radius:999px;padding:13px 23px;font-weight:700;transition:.2s}
+.primary{background:linear-gradient(135deg,#ee6287,#cf2858);color:white;box-shadow:0 8px 18px #d8426a35}
+.primary:hover{transform:translateY(-2px);filter:saturate(1.1)}
+.secondary{background:#fff;color:#bf315b;border:1px solid #f4b2c5}
+.center{display:flex;justify-content:center;gap:10px;flex-wrap:wrap;margin-top:24px}
+.hero-art{font-size:70px;text-align:center;margin:5px 0 18px;filter:drop-shadow(0 7px 6px #e47b9833)}
+.meter-wrap{display:flex;flex-direction:column;align-items:center;margin:12px auto 22px}
+.meter{width:240px;height:120px;position:relative;overflow:hidden}
+.meter:before{content:"";position:absolute;width:220px;height:220px;border-radius:50%;left:10px;top:10px;background:conic-gradient(from 270deg at 50% 50%,#f7a2b7 0deg,#d52e5e 180deg,#f7c9d4 180deg 360deg);mask:radial-gradient(circle,transparent 56%,#000 57% 72%,transparent 73%);-webkit-mask:radial-gradient(circle,transparent 56%,#000 57% 72%,transparent 73%);transform:rotate(0deg)}
+.needle{position:absolute;width:92px;height:4px;background:#8f163c;bottom:2px;left:50%;transform-origin:0 50%;transform:rotate(-90deg);border-radius:5px;transition:transform 1s ease;z-index:2}
+.needle:after{content:"";position:absolute;width:15px;height:15px;border-radius:50%;background:#8f163c;left:-7px;top:-5px}
+.percent{font-family:'Playfair Display',serif;font-size:42px;color:#bd244f;margin-top:-3px}
+.meter-label{font-size:13px;color:#a66b7d}
+.question{font-size:18px;font-weight:700;text-align:center;margin:8px 0 18px}
+.answers{display:grid;gap:10px}
+.answer{background:#fff8fa;border:1px solid #f3c0ce;padding:13px 16px;border-radius:14px;color:#8e3651;text-align:left;transition:.2s}
+.answer:hover,.answer.selected{background:#ffe0e9;border-color:#e45b80;transform:translateY(-1px)}
+.progress{height:7px;border-radius:99px;background:#f7d3dd;overflow:hidden;margin-bottom:22px}
+.progress span{height:100%;display:block;background:linear-gradient(90deg,#f59ab2,#ce2858);width:0;transition:width .3s}
+.gifts{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin:24px 0}
+.gift{background:#fff8fa;border:1px solid #f6bdcd;border-radius:18px;padding:20px 10px;min-height:140px;color:#b52a54}
+.gift span{display:block;font-size:54px;margin-bottom:8px;transition:.25s}
+.gift:hover span{transform:translateY(-5px) rotate(-4deg)}
+.gift small{font-weight:700}
+.bouquet{font-size:clamp(90px,22vw,160px);text-align:center;line-height:1.25;filter:drop-shadow(0 8px 7px #c9406720);margin:12px 0}
+.note{background:#fffdf9;border:1px solid #f2c7b8;border-radius:12px;padding:22px;line-height:1.8;color:#8e5860;box-shadow:0 10px 28px #b74b5c12;white-space:pre-line}
+.letter-title{font-family:Pacifico,cursive;color:#cf4267;text-align:center;font-size:28px;margin-bottom:18px}
+.photo-card{width:min(420px,100%);margin:20px auto;background:white;padding:12px 12px 20px;box-shadow:0 8px 30px #b23d6024;transform:rotate(-1deg)}
+.photo-placeholder{aspect-ratio:4/3;background:linear-gradient(145deg,#e9f5ff,#f6f8e9 45%,#ffc9d8);display:grid;place-items:center;font-size:48px}
+.photo-card p{text-align:center;font-family:Pacifico,cursive;color:#b83b60;margin:13px 0 0}
+.footer{margin-top:auto;padding-top:35px;font-size:12px;color:#bb8092;text-align:center}
+.float{position:fixed;pointer-events:none;bottom:-30px;animation:floatUp 5s linear forwards;z-index:3}
+@keyframes floatUp{to{transform:translateY(-110vh) rotate(30deg);opacity:0}}
+@media(max-width:520px){.gifts{gap:8px}.gift{padding:14px 5px;min-height:125px}.gift span{font-size:42px}.top{margin-bottom:16px}.panel{border-radius:20px}}
+</style>
+</head>
+<body>
+<section class="page active" id="home">
+  <header class="top"><div class="brand">a little love note</div><div class="heartmark">♡</div></header>
+  <div class="panel">
+    <div class="hero-art">💌</div>
+    <h1>How much do you love me?</h1>
+    <p class="subtitle">A tiny little corner of the internet, made just for you. Answer a few sweet questions and discover your surprise. ♡</p>
+    <div class="meter-wrap"><div class="meter"><div class="needle" id="needle"></div></div><div class="percent" id="percent">0%</div><div class="meter-label">your love-o-meter</div></div>
+    <div class="center"><button class="primary" onclick="startQuiz()">Take the love test ♡</button></div>
+  </div>
+  <div class="footer">made with ♡, just for you</div>
+</section>
+
+<section class="page" id="quiz">
+  <header class="top"><div class="brand">the love test</div><div class="heartmark">♡</div></header>
+  <div class="panel">
+    <div class="progress"><span id="progress"></span></div>
+    <div class="hero-art" id="quizEmoji">🐻</div>
+    <h2 id="quizTitle">Let's see...</h2>
+    <p class="question" id="question"></p>
+    <div class="answers" id="answers"></div>
+    <div class="center"><button class="primary" id="nextBtn" onclick="nextQuestion()" disabled>Next ♡</button></div>
+  </div><div class="footer">there are no wrong answers... mostly ♡</div>
+</section>
+
+<section class="page" id="result">
+  <header class="top"><div class="brand">your results</div><div class="heartmark">♡</div></header>
+  <div class="panel">
+    <div class="hero-art">🥹💗</div>
+    <h1>You passed the love test!</h1>
+    <p class="subtitle">Your surprise is waiting for you. Pick a little gift to open it.</p>
+    <div class="meter-wrap"><div class="meter"><div class="needle" id="resultNeedle"></div></div><div class="percent" id="resultPercent">100%</div><div class="meter-label">officially very loved</div></div>
+    <div class="gifts">
+      <button class="gift" onclick="showPage('bouquet')"><span>🎁</span><small>Gift 1</small></button>
+      <button class="gift" onclick="showPage('memory')"><span>🎁</span><small>Gift 2</small></button>
+      <button class="gift" onclick="showPage('letter')"><span>🎁</span><small>Gift 3</small></button>
+    </div>
+    <p class="subtitle">Each box holds a little reminder of how special you are.</p>
+  </div><div class="footer">the best gift is having you ♡</div>
+</section>
+
+<section class="page" id="bouquet">
+  <header class="top"><div class="brand">a bouquet for you</div><div class="heartmark">♡</div></header>
+  <div class="panel">
+    <h1>Your Bouquet</h1><p class="subtitle">I couldn't bring you the stars, so here's a little garden of love.</p>
+    <div class="bouquet">💐</div>
+    <div class="note">For my favourite person,
+
+These flowers are a small reminder that you make ordinary days feel special. I hope they bring you a smile today and every day.
+
+With all my love, ♡</div>
+    <div class="center"><button class="secondary" onclick="showPage('result')">← Back to gifts</button><button class="primary" onclick="showPage('letter')">Next surprise →</button></div>
+  </div><div class="footer">flowers fade, but this little note stays ♡</div>
+</section>
+
+<section class="page" id="memory">
+  <header class="top"><div class="brand">our little memory</div><div class="heartmark">♡</div></header>
+  <div class="panel">
+    <h1>A moment to keep</h1><p class="subtitle">Imagine this as our favourite memory together.</p>
+    <div class="photo-card"><div class="photo-placeholder">🌅🌷</div><p>one day, one memory, endless smiles</p></div>
+    <p class="subtitle">You make even the smallest moments worth remembering. Replace this picture area with your own favourite photo if you like.</p>
+    <div class="center"><button class="secondary" onclick="showPage('result')">← Back to gifts</button><button class="primary" onclick="showPage('letter')">Read my letter →</button></div>
+  </div><div class="footer">saved in my heart ♡</div>
+</section>
+
+<section class="page" id="letter">
+  <header class="top"><div class="brand">a letter from my heart</div><div class="heartmark">♡</div></header>
+  <div class="panel">
+    <div class="letter-title">A Letter From My Heart 💌</div>
+    <div class="note" contenteditable="true" spellcheck="false">My favourite person,
+
+I may not always find the perfect words to tell you how much you mean to me, but I hope you feel it in all the little things.
+
+Thank you for making me smile, for being yourself, and for adding so much warmth to my world. If I could give you one thing, it would be the ability to see yourself through my eyes — then you'd understand just how special you are.
+
+No matter how busy life gets, I hope you always remember that someone is cheering for you, thinking of you, and wishing you all the happiness in the world.
+
+With love, always. ♡</div>
+    <p class="subtitle">Tip: tap the letter text to personalise it before sharing this page.</p>
+    <div class="center"><button class="secondary" onclick="showPage('result')">← Back to gifts</button><button class="primary" onclick="celebrate()">Send a little love ♡</button></div>
+  </div><div class="footer">made with love, just for you ♡</div>
+</section>
+<script>
+const questions=[
+ {q:"What's your favourite thing about us?",e:"🐻",a:["The little moments together","How we make each other laugh","Everything, obviously!"]},
+ {q:"If we had a free day, what would you choose?",e:"🌷",a:["A cute little date","A cosy day with movies","An adventure somewhere new"]},
+ {q:"How often do I make you smile?",e:"😊",a:["Every now and then","More than you know","Every single day ♡"]},
+ {q:"Pick a tiny promise:",e:"💗",a:["I'll always try to understand you","I'll cheer you on","More hugs, always!"]}
+];
+let current=0,chosen=[];
+function showPage(id){document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));document.getElementById(id).classList.add('active');window.scrollTo({top:0,behavior:'smooth'});if(id==='result')animateMeter(100,'resultNeedle','resultPercent');}
+function startQuiz(){current=0;chosen=[];showPage('quiz');renderQuestion();}
+function renderQuestion(){
+ const q=questions[current];document.getElementById('quizEmoji').textContent=q.e;document.getElementById('quizTitle').textContent=`Question ${current+1} of ${questions.length}`;document.getElementById('question').textContent=q.q;document.getElementById('progress').style.width=(current/questions.length*100)+'%';document.getElementById('nextBtn').disabled=true;document.getElementById('nextBtn').textContent=current===questions.length-1?'See my result ♡':'Next ♡';
+ const box=document.getElementById('answers');box.innerHTML='';q.a.forEach((answer,i)=>{const b=document.createElement('button');b.className='answer';b.textContent=answer;b.onclick=()=>{chosen[current]=i;box.querySelectorAll('.answer').forEach(x=>x.classList.remove('selected'));b.classList.add('selected');document.getElementById('nextBtn').disabled=false;};box.appendChild(b);});
+}
+function nextQuestion(){if(chosen[current]===undefined)return;if(current<questions.length-1){current++;renderQuestion();}else{showPage('result');}}
+function animateMeter(value,needleId,percentId){document.getElementById(percentId).textContent=value+'%';document.getElementById(needleId).style.transform=`rotate(${(-90+180*value/100)}deg)`;}
+function celebrate(){for(let i=0;i<22;i++){setTimeout(()=>{const el=document.createElement('div');el.className='float';el.textContent=['♡','💗','🌸','💕'][Math.floor(Math.random()*4)];el.style.left=Math.random()*100+'vw';el.style.fontSize=(18+Math.random()*20)+'px';el.style.animationDuration=(3+Math.random()*3)+'s';document.body.appendChild(el);setTimeout(()=>el.remove(),6500)},i*100);}alert('A little love sent! ♡');}
+</script>
+</body>
+</html>
